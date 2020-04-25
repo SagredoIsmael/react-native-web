@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { screens } from '../constants/navigation'
+import { MAIN, PROFILE, CHAT } from './Navigator'
 import Colors from '../constants/colors'
 import MainScreen from '../screens/Main'
 import ProfileScreen from '../screens/Profile'
@@ -8,8 +8,6 @@ import ChatScreen from '../screens/Chat'
 import { Ionicons } from '@expo/vector-icons'
 
 const BottomTab = createBottomTabNavigator()
-
-const { MAIN, PROFILE, CHAT } = screens
 
 export default ({ navigation }) => {
   navigation.setOptions({ headerTitle: 'Sagredo App' })
