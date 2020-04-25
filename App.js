@@ -3,7 +3,6 @@ import { SplashScreen } from 'expo'
 import * as Font from 'expo-font'
 import { Ionicons } from '@expo/vector-icons'
 import { NavigationContainer } from '@react-navigation/native'
-import useLinking from './navigation/useLinking'
 import Navigator from './navigation/Navigator'
 import { View, StyleSheet } from 'react-native'
 
@@ -12,8 +11,6 @@ export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false)
   const [initialNavigationState, setInitialNavigationState] = React.useState()
   const containerRef = React.useRef()
-  const { getInitialState } = useLinking(containerRef)
-
 
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
