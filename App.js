@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { SplashScreen } from 'expo'
 import * as Font from 'expo-font'
 import { Ionicons } from '@expo/vector-icons'
 import { NavigationContainer } from '@react-navigation/native'
@@ -15,7 +14,6 @@ export default function App(props) {
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        SplashScreen.preventAutoHide()
         setInitialNavigationState(await getInitialState())
         await Font.loadAsync({
           ...Ionicons.font,
@@ -25,7 +23,6 @@ export default function App(props) {
         console.warn(e)
       } finally {
         setLoadingComplete(true)
-        SplashScreen.hide()
       }
     }
     loadResourcesAndDataAsync()

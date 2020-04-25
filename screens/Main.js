@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { StyleSheet, View } from 'react-native'
-
 import { MonoText } from '../components/UI/StyledText'
 
 export default () => 
