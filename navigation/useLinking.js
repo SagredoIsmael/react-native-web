@@ -1,18 +1,21 @@
-import { useLinking } from '@react-navigation/native';
-import { Linking } from 'expo';
+import { useLinking } from '@react-navigation/native'
+import { Linking } from 'expo'
+import { screens } from '../constants/navigation'
+
+const { MAIN, PROFILE, CHAT } = screens
 
 export default function(containerRef) {
   return useLinking(containerRef, {
     prefixes: [Linking.makeUrl('/')],
     config: {
-      Root: {
-        path: 'root',
+      MAIN: {
+        path: MAIN,
         screens: {
-          Home: 'home',
-          Links: 'links',
-          Settings: 'settings',
+          Home: MAIN,
+          Links: PROFILE,
+          Settings: CHAT
         },
       },
     },
-  });
+  })
 }
