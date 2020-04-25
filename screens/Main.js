@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { MonoText } from '../components/UI/StyledText'
+import { StyleSheet, View, Text } from 'react-native'
 
 export default () => 
 <View style={styles.container}>
-  <MonoText style={styles.text}>
+  <Text style={styles.text}>
     MAIN SCREEN
-  </MonoText>
+  </Text>
 </View>
 
 
