@@ -1,36 +1,53 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import * as React from 'react'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { screens } from '../constants/navigation'
-import TabBarIcon from '../components/TabBarIcon'
-import HomeScreen from '../screens/HomeScreen'
-import LinksScreen from '../screens/LinksScreen'
+import Colors from '../constants/colors'
+import MainScreen from '../screens/Main'
+import ProfileScreen from '../screens/Profile'
+import ChatScreen from '../screens/Chat'
+import { Ionicons } from '@expo/vector-icons'
 
 const BottomTab = createBottomTabNavigator()
 
 const { MAIN, PROFILE, CHAT } = screens
 
-export default function BottomTabNavigator({ navigation, route }) {
-  
+export default ({ navigation }) => {
   navigation.setOptions({ headerTitle: 'Sagredo App' })
 
   return (
     <BottomTab.Navigator initialRouteName={MAIN}>
       <BottomTab.Screen
         name={MAIN}
-        component={HomeScreen}
+        component={MainScreen}
         options={{
           title: MAIN,
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          tabBarIcon: ({ focused }) => <Icon focused={focused} name="md-code-working" />,
         }}
       />
       <BottomTab.Screen
         name={PROFILE}
-        component={LinksScreen}
+        component={ProfileScreen}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: PROFILE,
+          tabBarIcon: ({ focused }) => <Icon focused={focused} name="md-book" />,
+        }}
+      />
+      <BottomTab.Screen
+        name={CHAT}
+        component={ChatScreen}
+        options={{
+          title: CHAT,
+          tabBarIcon: ({ focused }) => <Icon focused={focused} name="md-map" />,
         }}
       />
     </BottomTab.Navigator>
   )
 }
+
+const Icon = ({focused, name}) =>
+  <Ionicons
+    name={name}
+    size={30}
+    style={{ marginBottom: -3 }}
+    color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+  />
