@@ -16,7 +16,7 @@ export default ({ navigation }) =>
     />
     <Button
       title="Jump to Map"
-      onPress={() => navigation.jumpTo('CHAT')}
+      onPress={() => navigation.navigate('CHAT')}
     />
   </View>
 
