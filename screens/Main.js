@@ -1,12 +1,24 @@
 import * as React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Button } from 'react-native'
 
-export default () => 
-<View style={styles.container}>
-  <Text style={styles.text}>
-    MAIN SCREEN
+export default ({ navigation }) =>
+  <View style={styles.container}>
+    <Text style={styles.text}>
+      MAIN SCREEN
   </Text>
-</View>
+    <Button
+      title="Go back"
+      onPress={() => navigation.goBack()}
+    />
+    <Button
+      title="Open Drawer"
+      onPress={() => navigation.toggleDrawer()}
+    />
+    <Button
+      title="Jump to Map"
+      onPress={() => navigation.jumpTo('CHAT')}
+    />
+  </View>
 
 
 const styles = StyleSheet.create({
@@ -14,8 +26,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#111',
   },
-  text:{
+  text: {
     color: 'white'
   }
 })
-  
+
