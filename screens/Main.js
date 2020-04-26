@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { StyleSheet, View, Text, Button } from 'react-native'
+import Header from '../components/header/Header'
 
 export default ({ navigation }) =>
   <View style={styles.container}>
+    <Header />
     <Text style={styles.text}>
       MAIN SCREEN
   </Text>

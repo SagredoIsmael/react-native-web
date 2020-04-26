@@ -11,9 +11,6 @@ export default {
   isSmallDevice: width < 375,
 }
 
-const window = Dimensions.get('window')
-const { width, height } = window
-
 const scale = width / 320
 
 export const sizeNormalize = (size) => {
