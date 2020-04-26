@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MAIN, PROFILE, CHAT } from './Navigator'
-import Colors from '../constants/colors'
+import colors from '../constants/colors'
 import MainScreen from '../screens/Main'
 import ProfileScreen from '../screens/Profile'
 import ChatScreen from '../screens/Chat'
@@ -13,7 +13,7 @@ export default ({ navigation }) => {
   navigation.setOptions({ headerTitle: 'Sagredo App' })
 
   return (
-    <BottomTab.Navigator initialRouteName={MAIN}>
+    <BottomTab.Navigator initialRouteName={MAIN} tabBarOptions={tabBarCommonsOptions}>
       <BottomTab.Screen
         name={MAIN}
         component={MainScreen}
@@ -47,5 +47,12 @@ const Icon = ({focused, name}) =>
     name={name}
     size={30}
     style={{ marginBottom: -3 }}
-    color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+    color={focused ? colors.tabIconSelected : colors.third}
   />
+
+  const tabBarCommonsOptions = {
+    activeTintColor: colors.secondary,
+    inactiveTintColor: colors.primary,
+    activeBackgroundColor: colors.third,
+    inactiveBackgroundColor: colors.secondary
+}
