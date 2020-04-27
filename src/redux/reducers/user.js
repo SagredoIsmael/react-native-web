@@ -1,43 +1,40 @@
-import { REQUEST_DATA_COURSES, SUCCESS_DATA_COURSES, ERROR_DATA_COURSES,
-        SET_COURSE_SELECTED } from '../actions/types'
 
+import { SUCCESS_LOGIN, SET_DATA_USER, ERROR_LOGIN, LOG_OUT } from '../actions/types'
 
 const initialState = {
-  courses: [],
-  loading: false,
+  token: null,
+  username: null,
+  password: null,
   error: null,
-  courseSelected: null
 }
 
 export default (state = initialState, action) => {
-  switch(action.type){
 
-    case REQUEST_DATA_COURSES:
+  switch (action.type) {
+
+    case SUCCESS_LOGIN:
       return {
         ...state,
-        loading: true,
-        error: null
+        token: action.token
       }
 
-    case SUCCESS_DATA_COURSES:
+    case SET_DATA_USER:
       return {
         ...state,
-        loading: false,
-        courses: action.payload
+        [action.data.type]: action.data.value
       }
 
-    case ERROR_DATA_COURSES:
+
+    case ERROR_LOGIN:
       return {
         ...state,
-        loading: false,
-        error: action.payload,
-        items: []
+        error: action.error
       }
 
-    case SET_COURSE_SELECTED:
+    case LOG_OUT:
       return {
         ...state,
-        courseSelected: action.payload
+        token: null
       }
 
     default:
