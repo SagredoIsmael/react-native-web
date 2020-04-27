@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MAIN, PROFILE, CHAT } from './Navigator'
 import colors from '../constants/colors'
 import MainScreen from '../screens/Main'
-import ProfileScreen from '../screens/Profile'
+import profileScreen from '../redux/containers/profile'
 import ChatScreen from '../screens/Chat'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -24,7 +24,7 @@ export default ({ navigation }) => {
       />
       <BottomTab.Screen
         name={PROFILE}
-        component={ProfileScreen}
+        component={profileScreen}
         options={{
           title: PROFILE,
           tabBarIcon: ({ focused }) => <Icon focused={focused} name="md-book" />,
