@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Login from '../screens/Login'
+import Login from '../redux/containers/login'
 import DrawerNavigator from './Drawer'
 import { LOGIN, MAIN } from './Navigator'
 import colors from '../constants/colors'
