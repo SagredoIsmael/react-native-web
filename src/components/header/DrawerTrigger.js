@@ -3,22 +3,18 @@ import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { sizeNormalize } from '../../constants/layout'
 import colors from '../../constants/colors'
-import { useNavigation } from '@react-navigation/native'
+import { connectNavigation } from '../../redux/HOC/connectNavigation'
 
-export default () => {
-    const navigation = useNavigation()
-    return (
-        <View>
-            <TouchableOpacity style={styles.container}
-                onPress={() => navigation.toggleDrawer()}>
-                <Icon
-                    name={'md-menu'}
-                    size={sizeNormalize(27)}
-                    color={colors.third} />
-            </TouchableOpacity>
-        </View>
-    )
-}
+const DrawerTrigger = ({toggleDrawer}) =>
+    <View>
+        <TouchableOpacity style={styles.container}
+            onPress={() => toggleDrawer()}>
+            <Icon
+                name={'md-menu'}
+                size={sizeNormalize(27)}
+                color={colors.third} />
+        </TouchableOpacity>
+    </View>
 
 const styles = StyleSheet.create({
     container: {
@@ -29,4 +25,5 @@ const styles = StyleSheet.create({
     }
 })
 
+export default connectNavigation(DrawerTrigger)
 
