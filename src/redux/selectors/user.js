@@ -7,3 +7,18 @@ export const getUserToken = pipe(
     getUser,
     get('token')
 )
+
+export const getUsername = pipe(
+    getUser,
+    get('username')
+)
+
+export const getPassword = pipe(
+    getUser,
+    get('password')
+)
+
+export const getUserError = pipe(
+    getUser,
+    get('error')
+)
