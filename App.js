@@ -2,16 +2,15 @@ import * as React from 'react'
 import Navigator from './src/navigation/Navigator'
 import { YellowBox } from "react-native"
 import { Provider } from 'react-redux'
-import { configureStore } from './src/redux/configureStore'
+import { store, persistor } from './src/redux/configureStore'
+import { PersistGate } from 'redux-persist/integration/react'
 
-export default () => {
-    const store = configureStore()
-    return (
-        <Provider store={store}>
+export default () =>
+    <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
             <Navigator />
-        </Provider>
-    )
-}
+        </PersistGate>
+    </Provider>
 
 
 // ignore specific yellowbox warnings
