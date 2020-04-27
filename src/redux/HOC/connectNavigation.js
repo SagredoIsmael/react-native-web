@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { navigate, goBack, reset, toggleDrawer, openDrawer, closeDrawer } from '../actions/navigation'
+import { navigate, goBack, reset, toggleDrawer } from '../actions/navigation'
 import { getNavigationCurrentScreen } from '../selectors/navigation.js'
 
 export const connectNavigation = WrappedComponent => {
@@ -12,8 +12,6 @@ export const connectNavigation = WrappedComponent => {
         reset,
         goBack,
         toggleDrawer,
-        openDrawer,
-        closeDrawer,
     }
 
     return connect(
